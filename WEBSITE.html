@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Travel Planner AI&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', sans-serif; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body { background: #f0f8ff; color: #333; line-height: 1.6; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header { background: #4CAF50; color: white; padding: 1rem; text-align: center; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1 { margin-bottom: 0.5rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>main { max-width: 800px; margin: 2rem auto; padding: 1rem; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>label { display: block; margin: 1rem 0 0.5rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>input, select, textarea, button { width: 100%; padding: 0.7rem; margin-bottom: 1rem; border-radius: 5px; border: 1px solid #ccc; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button { background: #4CAF50; color: white; border: none; cursor: pointer; font-weight: bold; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button:hover { background: #45a049; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.ai-response { margin-top: 1rem; padding: 1rem; background: #e7f5e6; border-left: 5px solid #4CAF50; border-radius: 5px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Travel Planner AI&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Plan your next trip with simple AI suggestions!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="destination"&gt;Destination:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="destination" placeholder="e.g., Paris, Japan, New York"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="days"&gt;Number of Days:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="number" id="days" min="1" placeholder="e.g., 5"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="preferences"&gt;Preferences (optional):&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;textarea id="preferences" rows="3" placeholder="e.g., museums, beaches, food"&gt;&lt;/textarea&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="generatePlan()"&gt;Generate Trip Plan&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="aiPlan" class="ai-response" style="display:none;"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function generatePlan() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const destination = document.getElementById('destination').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const days = document.getElementById('days').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const prefs = document.getElementById('preferences').value.trim();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!destination || !days) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>alert('Please enter destination and number of days!');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const suggestions = [</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"Visit local landmarks and famous attractions",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"Try the local cuisine",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"Explore hidden gems off the tourist path",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"Join a local tour or experience",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"Relax at a park or beach",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"Check out local events and festivals"</p>
+<p class="p1"><span class="Apple-converted-space">      </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>let plan = `Your ${days}-day trip to ${destination}:\n\n`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>for (let i = 1; i &lt;= days; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const activity = suggestions[Math.floor(Math.random() * suggestions.length)];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>plan += `Day ${i}: ${activity}${prefs ? " with focus on " + prefs : ""}.\n`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const aiDiv = document.getElementById('aiPlan');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>aiDiv.style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>aiDiv.innerText = plan;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
